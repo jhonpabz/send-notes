@@ -13,15 +13,29 @@ new class extends Component {
 
 <div>
     <div class="space-y-2">
-        @foreach ($notes as $note)
-            <x-card wire:key="{{ $note->id }}">
-                <div class="flex justify-between">
-                    <a href="#" class="text-xl font-bold hover:underline hover:text-blue-500">{{ $note ->title}}</a>
-                    <div class="text-xs text-gray-500">
-                    {{ \Carbon\Carbon::parse($note->sent_date)->format('M-d-Y')}}
+        <div class="grid grid-cols-2 gap-4 mt-12">
+            @foreach ($notes as $note)
+                <x-card class="p-4" wire:key="{{ $note->id }}">
+                    <div class="flex justify-between ">
+                        <a href="#"
+                            class="text-xl font-bold hover:underline hover:text-blue-500">{{ $note->title }}</a>
+                        <div class="text-xs text-gray-500">
+                            {{ \Carbon\Carbon::parse($note->sent_date)->format('M-d-Y') }}
+                        </div>
+
                     </div>
-                </div>
-            </x-card>
-        @endforeach
+                    <div class="flex items-end justify-between mt-4 space-x-1">
+                        <p class="text-xs">Recipient: <span class="">{{ $note->recipient }}</span></p>
+
+                        <div>
+                        <x-button.circle class="p-2" icon="eye"></x-button.circle>
+                        <x-button.circle class="p-2" icon="trash"></x-button.circle>
+                    </div>
+                    </div>
+
+                    
+                </x-card>
+            @endforeach
+        </div>
     </div>
 </div>
