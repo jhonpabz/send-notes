@@ -42,4 +42,5 @@ new class extends Component {
             <x-button wire:click='submit' right-icon="calendar" spinner>Submit </x-button>
         </div>
     </form>
+    <x-errors />
 </div>
