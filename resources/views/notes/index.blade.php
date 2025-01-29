@@ -5,19 +5,13 @@
         </h2>
     </x-slot>
 
-    @php
-        $notes = App\Models\Note::all()->where('user_id', Auth::user()->id)
-    @endphp
+
 
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden text-white shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    @foreach ($notes as $note)
-                        <li>
-                            <p>{{ $note->title }}</p>
-                        </li>
-                    @endforeach
+                 <livewire:notes.show-notes />
                 </div>
             </div>
         </div>
