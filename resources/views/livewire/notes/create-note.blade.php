@@ -16,7 +16,19 @@ new class extends Component {
             'noteRecipient' => ['required', 'email'],
             'noteSentDate' => ['required', 'date'],
         ]);
-        dd($this->noteTitle, $this->noteBody, $this->noteRecipient, $this->noteSentDate);
+
+        auth()
+            ->user()
+            ->notes()
+            ->create([
+                'title' => $this->noteTitle,
+                'body' => $this->noteBody,
+                'recipient' => $this->noteRecipient,
+                'sent_date' => $this->noteSentDate,
+                'is_published' => false,
+            ]);
+
+        redirect(route('notes.index'));
     }
 }; ?>
 
