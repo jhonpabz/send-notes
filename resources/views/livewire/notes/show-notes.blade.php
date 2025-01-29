@@ -17,7 +17,7 @@ new class extends Component {
             <div class="text-center">
                 <p class="text-xl font-bold">No notes yet</p>
                 <p class="text-sm">Let's create your first note to send.</p>
-                <x-button icon-right="plus" primary class="mt-6 bg-rose-500">Create note</x-button>
+                <x-button icon-right="plus" primary class="mt-6 bg-rose-500" href="{{ route('notes.create')}}" wire:navigate>Create note</x-button>
             </div>
             
         @else
