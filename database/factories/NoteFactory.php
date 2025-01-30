@@ -19,7 +19,7 @@ class NoteFactory extends Factory
         return [
             'id' => $this->faker->uuid,
             'user_id' => \App\Models\User::factory(),
-            'title' => $this->faker->sentence,
+            'title' => $this->faker->words(3, true),
             'body' => $this->faker->paragraph(3, true),
             'recipient' => $this->faker->email,
             'sent_date' => $this->faker->dateTimeBetween('now', '+10 days', ),
