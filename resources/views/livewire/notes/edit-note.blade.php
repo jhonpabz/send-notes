@@ -41,6 +41,8 @@ new #[Layout('layouts.app')] class extends Component {
             'sent_date' => $this->noteSentDate,
             'is_published' => $this->noteIsPublished,
         ]);
+
+        return $this->redirect(route('notes.index'), navigate: true);
     }
 }; ?>
 
@@ -59,7 +61,8 @@ new #[Layout('layouts.app')] class extends Component {
                 <x-input wire:model="noteSentDate" type="date" label="Sent Date" />
                 <x-checkbox label="Note Published" wire:model='noteIsPublished' />
                 <div class="pt-4">
-                    <x-button class="text-white bg-rose-500" type='submit' right-icon="calendar" spinner>Save </x-button>
+                    <x-button class="mr-4 text-white bg-rose-500" type='submit' spinner="saveNote">Save </x-button>
+                    <x-button href="{{route('notes.index')}}"  flat negative>Cancel</x-button>
                 </div>
                 <x-errors />
             </form>
