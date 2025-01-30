@@ -1,11 +1,14 @@
 <?php
 
 use Livewire\Volt\Component;
+use Livewire\Attributes\Layout;
 
-new class extends Component {
+new #[Layout('layouts.app')] class extends Component {
+
+
     //
 }; ?>
 
 <div>
-    //
+    Edit note page
 </div>
