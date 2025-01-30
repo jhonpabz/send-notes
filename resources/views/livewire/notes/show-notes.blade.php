@@ -1,8 +1,16 @@
 <?php
 
 use Livewire\Volt\Component;
+use App\Models\Note;
 
 new class extends Component {
+
+    public function delete($noteId)
+    {
+        $note = Note::where('id', $noteId)->first();
+        $note->delete();
+    }
+
     public function with(): array
     {
         return [
@@ -39,7 +47,7 @@ new class extends Component {
                             <p class="text-xs">Recipient: <span class="">{{ $note->recipient }}</span></p>
                             <div>
                                 <x-button.circle class="p-2" icon="eye"></x-button.circle>
-                                <x-button.circle class="p-2" icon="trash"></x-button.circle>
+                                <x-button.circle class="p-2" icon="trash" wire:click="delete('{{ $note->id }}')"></x-button.circle>
                             </div>
                         </div>
                     </x-card>
